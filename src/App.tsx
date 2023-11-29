@@ -4,6 +4,7 @@ import { DashboardPage, LoginPage, RegisterPage } from "./pages";
 import { Routes, Route } from "react-router-dom";
 //styles
 import "./App.css";
+import { ProtectedRoute } from "./features/routes";
 
 function App() {
   return (
@@ -11,7 +12,20 @@ function App() {
       <header></header>
       <main>
         <Routes>
-          <Route path="/" element={<DashboardPage />} />
+          {/* <ProtectedRoute
+            path="/"
+            element={<DashboardPage />}
+            isAuthenticated={false}
+          /> */}
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute isAuthenticated={false}>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>
