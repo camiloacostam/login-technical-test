@@ -1,4 +1,4 @@
-import { Button, Input } from "../../ui";
+import { RegisterForm } from "./form";
 
 export function RegisterUser() {
   return (
@@ -9,34 +9,7 @@ export function RegisterUser() {
           Please fill out the form to create an account
         </p>
       </div>
-      <div className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
-          <Input
-            id="first-name"
-            label="First name"
-            placeholder="John"
-            required
-          />
-          <Input id="last-name" label="Last name" placeholder="Doe" required />
-        </div>
-        <Input
-          id="email"
-          label="Email"
-          placeholder="Enter your Email"
-          required
-          type="email"
-        />
-        <div className="space-y-2 relative">
-          <Input
-            id="password"
-            label="Password"
-            placeholder=""
-            required
-            type="password"
-          />
-        </div>
-        <Button label="Register" />
-      </div>
+      <RegisterForm />
       <div className="flex justify-center items-center mt-4">
         <a className="text-sm text-gray-500 " href="/login">
           Back to Login
