@@ -1,0 +1,23 @@
+# Use a Node image with a specific version
+FROM node:14
+
+# Set the working directory
+WORKDIR /app
+
+# Copy necessary files
+COPY package*.json tsconfig.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the files
+COPY . .
+
+# Build the application
+RUN npm run build
+
+# Expose the port on which the application will run (adjust as per your configuration)
+EXPOSE 3000
+
+# Start the application (adjust as per your configuration)
+RUN npm run dev
